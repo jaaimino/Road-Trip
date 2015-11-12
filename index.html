@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="icon" type="image/png" href="assets/favicon.ico">
+        <meta charset="utf-8" />
+        <title>Road Trip</title>
+        <style> body { margin: 0; background: #000000; } </style>
+        <script src="core/phaser.min.js"></script>
+        <script src="core/graph.js"></script>
+        <script src="src/MapData.js"></script>
+        <script src="src/Customization.js"></script>
+        <script src="src/Events.js"></script>
+        <script src="src/SharedData.js"></script>
+        <script src="src/SaveManager.js"></script>
+        <script src="src/states/Boot.js"></script>
+        <script src="src/states/Preloader.js"></script>
+        <script src="src/states/MainMenu.js"></script>
+        <script src="src/states/Setup.js"></script>
+        <script src="src/states/Map.js"></script>
+        <script src="src/states/Store.js"></script>
+        <script src="src/states/Driving.js"></script>
+        <script src="src/states/RandomEvent.js"></script>
+        <script src="src/states/GasStation.js"></script>
+        <script src="src/states/Rafting.js"></script>
+        <script src="src/states/ChickenChasing.js"></script>
+        <script src="src/states/Snowboarding.js"></script>
+    </head>
+    <body>
+        <script>
+            /* global RoadTrip Phaser */
+            // initialize the framework
+            var game = new Phaser.Game(900, 600, Phaser.AUTO, 'game');
+            // add game states
+            game.SHARED_DATA = new SharedData();
+            game.failedState = null;
+            game.state.add('Boot', RoadTrip.Boot);
+            game.state.add('Preloader', RoadTrip.Preloader);
+            game.state.add('Setup', RoadTrip.Setup);
+            game.state.add('MainMenu', RoadTrip.MainMenu);
+            game.state.add('Map', RoadTrip.Game);
+            game.state.add('Store', RoadTrip.Store);
+            game.state.add('Driving', RoadTrip.Driving);
+            game.state.add('RandomEvent', RoadTrip.RandomEvent);
+            game.state.add('GasStation', RoadTrip.GasStation);
+            game.state.add('Rafting', RoadTrip.Rafting);
+            game.state.add('ChickenChasing', RoadTrip.ChickenChasing);
+            game.state.add('Snowboarding', RoadTrip.Snowboarding);
+            //  start the Boot state
+            game.state.start('Boot');
+        </script>
+    </body>
+</html>
